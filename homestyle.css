@@ -1,0 +1,304 @@
+:root {
+  --card: rgba(255, 255, 255, 0.76);
+  --border: rgba(255, 255, 255, 0.7);
+  --text: #3c273d;
+  --muted: #6e4a64;
+  --accent: #ff8cb4;
+  --accent-strong: #f5b0d5;
+  --petal: #ffbfdc;
+  --petal-shadow: rgba(153, 68, 97, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+  cursor: url('axolot_cursor.png') 0 0, auto;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  cursor: url('axolot_cursor.png') 0 0, auto;
+}
+
+body, * {
+  cursor: url('axolot_cursor.png') 0 0, auto;
+}
+
+a,
+button,
+input,
+.about-button,
+.mc-button,
+.btn {
+  cursor: url('axolot pointer.png') 0 0, pointer;
+}
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+
+.container {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.hanami-scene {
+  position: relative;
+  width: min(680px, 100%);
+  padding: 2rem;
+}
+
+.home-card {
+  position: relative;
+  width: 100%;
+  padding: 2.6rem 2rem;
+  border-radius: 32px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 30px 60px rgba(77, 53, 211, 0.16);
+  text-align: center;
+  backdrop-filter: blur(14px);
+  overflow: hidden;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+.about-button {
+  margin-top: 0;
+  text-decoration: none;
+  display: inline-block;
+  cursor: url('axolot pointer.png') 0 0, pointer !important;
+}
+
+.home-card::before {
+  content: "";
+  position: absolute;
+  inset: -20px 25px 25px -20px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(226,216,248,.65), transparent 16%),
+    radial-gradient(circle at 80% 55%, rgba(208,198,228,.55), transparent 18%);
+  filter: blur(14px);
+  opacity: .65;
+  pointer-events: none;
+}
+
+
+
+.header-title,
+.welcome-message,
+.test,
+.mc-button {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+.header-title {
+  animation-delay: .15s;
+}
+
+.welcome-message {
+  animation-delay: .3s;
+}
+
+.test {
+  animation-delay: .45s;
+}
+
+.mc-button {
+  animation-delay: .6s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header-title {
+  color: #4311cc;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 20px;
+}
+
+.welcome-message,
+.test {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.85;
+}
+
+.welcome-message {
+  margin-bottom: 1.5rem;
+}
+
+.test {
+  margin-bottom: 2rem;
+}
+
+
+
+.mc-button {
+    background-color: #7a7a7a;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: 3px solid;
+    border-color: #373737 #fff #fff #373737;
+    cursor: url('axolot pointer.png') 0 0, pointer !important;
+    text-shadow: 2px 2px #000;
+    background-color: #8a8a8a;
+    border-color: #fff #373737 #373737 #fff;
+    background-color: #6a6a6a;
+}
+
+
+
+.mc-button:hover,
+.mc-button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgb(89, 243, 84);
+  cursor: url('axolot pointer.png') 0 0, pointer !important;
+}
+
+
+.hanami-tree {
+  position: absolute;
+  bottom: 0;
+  left: 14px;
+  width: 140px;
+  height: 220px;
+  pointer-events: none;
+}
+
+.tree-trunk {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 24px;
+  height: 120px;
+  background: linear-gradient(180deg,#7a4d3f,#4d2b1f);
+  border-radius: 16px;
+  transform: translateX(-50%);
+}
+
+.tree-crown {
+  position: absolute;
+  display: block;
+  width: 110px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 35%, #f9d4e2 0%, #f2a6c9 60%, transparent 88%);
+  box-shadow: 0 12px 24px rgba(255,146,183,.22);
+}
+
+.crown-1 {
+  bottom: 90px;
+  left: 10px;
+}
+
+.crown-2 {
+  bottom: 110px;
+  left: 18px;
+  width: 120px;
+  height: 88px;
+}
+
+.crown-3 {
+  bottom: 80px;
+  left: 22px;
+  width: 94px;
+  height: 74px;
+}
+
+.tree-crown::before,
+.tree-crown::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #ffd4e5;
+  box-shadow: 0 0 0 6px rgba(255,255,255,.12);
+}
+
+.tree-crown::before {
+  top: 18px;
+  left: 14px;
+}
+
+.tree-crown::after {
+  top: 34px;
+  right: 16px;
+}
+
+
+
+@media (max-width: 680px) {
+
+  .container {
+    padding: 24px 16px;
+  }
+
+  .hanami-scene {
+    padding: 0;
+  }
+
+  .home-card {
+    padding: 2rem 1.5rem;
+    border-radius: 26px;
+  }
+
+  .button {
+    max-width: 100%;
+  }
+
+  .header-title {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+}
+
+#animation .text-xl {
+  font-size: 1.5rem;
+  color: currentColor;
+  letter-spacing: .06em;
+}
+
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  
+
+}

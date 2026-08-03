@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="homestyle.css">
+</head>
+<body>
+
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="Minecraft Fireflies Forest 4K Live Wallpaper 🌲✨.mp4" type="video/mp4">
+    </video>
+
+    <audio autoplay loop>
+        <source src="C418 - Minecraft - Minecraft Volume Alpha.mp3">
+    </audio>
+
+    <audio id="button-sound" preload="auto">
+        <source src="minecraft_button.mp3" type="audio/mpeg">
+    </audio>
+
+    <main class="container">
+        <div class="hanami-scene">
+
+            <section class="home-card">
+
+                <!-- Ditambah ID "welcome-heading" untuk paparkan nama tanpa ubah gaya tulisan asal -->
+                <h1 class="test" id="welcome-heading">Selamat Datang ke Halaman Utama</h1>
+
+                <p class="welcome-message">
+                    Selamat datang ke laman web kami yang meneroka dunia teknologi, AI, angkasa, dan inovasi masa depan.
+                </p>
+
+                <p class="test">
+                    Kami membina pengalaman digital yang menarik dan mudah difahami untuk semua pelajar dan pengunjung.
+                </p>
+
+                <div class="button-group">
+                    <button class="mc-button" type="button" onclick="bukaHalaman()">Buka Halaman Informasi</button>
+                    <button class="mc-button about-button" type="button" onclick="mainkanSuaraDanBuka('kumpulan_kami.html')">Tentang Kami</button>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+        var buttonSound = document.getElementById('button-sound');
+
+        function mainkanSuaraDanBuka(url) {
+            console.log("Butang Minecraft telah diklik!");
+
+            if (buttonSound) {
+                buttonSound.pause();
+                buttonSound.currentTime = 0;
+                buttonSound.volume = 0.9;
+
+                buttonSound.play().catch(function(err) {
+                    console.log("Audio gagal dimainkan:", err);
+                });
+            }
+
+            setTimeout(function() {
+                if (url && url !== '#') {
+                    window.location.href = url;
+                }
+            }, 500);
+        }
+
+        function bukaHalaman() {
+            mainkanSuaraDanBuka("index.html");
+        }
+
+        // --- HANYA BAHAGIAN INI SAHAJA YANG DITAMBAH (UNTUK SAMBUT NAMA USER) ---
+        // Membaca data parameter daripada URL (?login=success&user=...) tanpa menyekat atau menendang akses
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('user');
+
+        if (username) {
+            window.addEventListener('DOMContentLoaded', () => {
+                const welcomeHeading = document.getElementById('welcome-heading');
+                if (welcomeHeading) {
+                    welcomeHeading.innerText = "Selamat Datang, " + decodeURIComponent(username) + "! 👋";
+                }
+            });
+        }
+    </script>
+
+    <script src="homescript.js"></script>
+    <script src="ani-cursor.js"></script>
+
+</body>
+</html>

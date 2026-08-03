@@ -1,0 +1,22 @@
+body {
+  cursor: url('axolot_cursor.png') 0 0, auto;
+}
+
+a,
+button,
+input,
+textarea,
+select,
+.button,
+.btn,
+.image-link {
+  cursor: url('axolot pointer.png') 0 0, pointer !important;
+}
+
+a,
+button,
+input,
+.button,
+.btn {
+  cursor: url('axolot pointer.png') 0 0, pointer;
+}
